@@ -117,7 +117,7 @@ const valor_Compra = () => {
         const iva = valor_Total * 0.19;
         const totalCon_Iva = valor_Total + iva;
 
-        if (valorTotal > 1000000) {
+        if (valor_Total > 1000000) {
             const descuento = valor_Total * 0.1;
             const totalConDescuento = totalCon_Iva - descuento;
             return {
