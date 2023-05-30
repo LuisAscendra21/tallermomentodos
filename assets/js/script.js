@@ -62,6 +62,23 @@ const area_Circunfrerencia = () => {
         "El área de la circunferencia con radio " + radio + " es: " + area
     );
 };
+const Tipo_triangulo = () => {
+    function determinar_Triangulo(a, b, c) {
+        if (a === b && b === c) {
+            return "Equilátero";
+        } else if (a === b || a === c || b === c) {
+            return "Isósceles";
+        } else {
+            return "Escaleno";
+        }
+    }
+    let ladoA = parseInt(prompt("Ingrese la longitud del lado A:"));
+    let ladoB = parseInt(prompt("Ingrese la longitud del lado B:"));
+    let ladoC = parseInt(prompt("Ingrese la longitud del lado C:"));
+
+    let triangulo = determinar_Triangulo(ladoA, ladoB, ladoC);
+    console.log("El triángulo es: " + triangulo);
+};
 
 
 menu_Ejercisios();
