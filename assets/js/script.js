@@ -79,6 +79,37 @@ const Tipo_triangulo = () => {
     let triangulo = determinar_Triangulo(ladoA, ladoB, ladoC);
     console.log("El triángulo es: " + triangulo);
 };
+const numero_Amigo = () => {
+    function sumar_Divisores(numero) {
+        let suma_Uno = 0;
+        for (let i = 1; i <= Math.floor(numero / 2); i++) {
+            if (numero % i === 0) {
+                suma_Uno += i;
+            }
+        }
+        return suma_Uno;
+    }
+
+    function amigo_numero(numero_Uno, numero_Dos) {
+        const suma_Uno = sumar_Divisores(numero_Uno);
+        const suma_Dos = sumar_Divisores(numero_Dos);
+
+        if (suma_Uno === numero_Dos && suma_Dos === numero_Uno) {
+            return true;
+        }
+        return false;
+    }
+
+    const numero_Uno = parseInt(prompt("Ingrese el primer número:"));
+    const numero_Dos = parseInt(prompt("Ingrese el segundo número:"));
+
+    if (amigo_numero(numero_Uno, numero_Dos)) {
+        console.log("El numero", + numero_Uno + " entre el numero", + numero_Dos + " son amigos");
+    } else {
+        console.log("El numero", + numero_Uno + " entre el numero", + numero_Dos + " no son amigos");;
+    }
+
+}
 
 
 menu_Ejercisios();
