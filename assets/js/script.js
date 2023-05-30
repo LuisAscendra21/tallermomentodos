@@ -111,41 +111,73 @@ const numero_Amigo = () => {
 
 }
 const valor_Compra = () => {
-    function calcularCompra(valorCompra, cantidad) {
+    function calcular_Compra(valorCompra, cantidad) {
         const valorUnitario = valorCompra / cantidad;
-        const valorTotal = valorCompra;
-        const iva = valorTotal * 0.19;
-        const totalConIva = valorTotal + iva;
+        const valor_Total = valorCompra;
+        const iva = valor_Total * 0.19;
+        const totalCon_Iva = valor_Total + iva;
 
         if (valorTotal > 1000000) {
-            const descuento = valorTotal * 0.1;
-            const totalConDescuento = totalConIva - descuento;
+            const descuento = valor_Total * 0.1;
+            const totalConDescuento = totalCon_Iva - descuento;
             return {
-                valorCompra: valorTotal,
+                valorCompra: valor_Total,
                 iva: iva,
                 total: totalConDescuento
             };
-        } else if (valorTotal > 500000) {
+        } else if (valor_Total > 500000) {
             return {
-                valorCompra: valorTotal,
+                valorCompra: valor_Total,
                 iva: iva,
-                total: valorTotal
+                total: valor_Total
             };
         } else {
             return {
-                valorCompra: valorTotal,
+                valorCompra: valor_Total,
                 iva: iva,
-                total: totalConIva
+                total: totalCon_Iva
             };
         }
     }
 
-    const valorCompra = Number(prompt('Ingrese valor de compra $'));
+    const valor_Compra = Number(prompt('Ingrese valor de compra $'));
     const cantidad = Number(prompt('Ingrese la cantidad del producto: '));
-    const resultado = calcularCompra(valorCompra, cantidad);
+    const resultado = calcular_Compra(valor_Compra, cantidad);
     console.log("Valor de compra: " + resultado.valorCompra);
     console.log("IVA: " + resultado.iva);
     console.log("Total: " + resultado.total);
+}
+const notas_Estudiantes = ()=>{
+    const nota_Uno = parseFloat(prompt("Ingrese la primera nota: "));
+    const nota_Dos = parseFloat(prompt("Ingrese la segunda nota: "));
+    const nota_Tres = parseFloat(prompt("Ingrese la tercera nota: "));
+    const nota_Cuatro = parseFloat(prompt("Ingrese la cuarta nota: "));
+
+    function calcularNota_Final(nota_Uno, nota_Dos, nota_Tres, nota_Cuatro) {
+        if (nota_Cuatro === 5) {
+            nota_Uno += 1;
+          nota_Dos += 1;
+          nota_Tres += 1;
+        }
+      
+        // Limitar las notas a un máximo de 5
+        nota1 = Math.min(nota_Uno, 5);
+        nota2 = Math.min(nota_Dos, 5);
+        nota3 = Math.min(nota_Tres, 5);
+        nota4 = Math.min(nota_Cuatro, 5);
+      
+        const notaFinal_Ponderada = (nota_Uno * 0.1) + (nota_Dos * 0.2) + (nota_Tres * 0.3) + (nota_Cuatro * 0.4);
+      
+        if (notaFinal_Ponderada > 3.5) {
+          return "El estudiante ganó";
+        } else {
+          return "El estudiante perdió";
+        }
+      }
+    
+      const resultado = calcularNota_Final(nota_Uno, nota_Dos, nota_Tres, nota_Cuatro);
+      console.log(resultado);
+      
 }
 
 menu_Ejercisios();
