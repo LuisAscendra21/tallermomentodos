@@ -44,6 +44,24 @@ const ordenar_Numeros = () => {
     console.log("Orden de menor a mayor: " + ordenar_Menor_Mayor);
     console.log("Orden de mayor a menor: " + ordenar_Mayor_Menor);
 };
+const area_Circunfrerencia = () => {
+    function calcular_Circunferencia(radio) {
+        if (radio <= 0) {
+            return "El radio debe ser un valor positivo.";
+        }
+
+        let area = Math.PI * (radio * radio);
+        return area.toFixed(2);
+    }
+
+    let radio = parseInt(
+        prompt("Ingrese su numero para calcular area de circunferencia: ")
+    );
+    let area = calcular_Circunferencia(radio);
+    console.log(
+        "El área de la circunferencia con radio " + radio + " es: " + area
+    );
+};
 
 
 menu_Ejercisios();
