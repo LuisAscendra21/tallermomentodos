@@ -13,13 +13,13 @@ const menu_Ejercisios = () => {
             console.log(area_Circunfrerencia());
             break;
         case 3:
-            console.log(Tipo_triangulo());
+            console.log(tipo_Triangulo());
             break;
         case 4:
             console.log(numero_Amigo());
             break;
         case 5:
-            console.log(Valor_compra());
+            console.log(valor_Compra());
             break;
         case 6:
             console.log(notas_Estudiantes());
@@ -62,7 +62,7 @@ const area_Circunfrerencia = () => {
         "El área de la circunferencia con radio " + radio + " es: " + area
     );
 };
-const Tipo_triangulo = () => {
+const tipo_Triangulo = () => {
     function determinar_Triangulo(a, b, c) {
         if (a === b && b === c) {
             return "Equilátero";
@@ -110,6 +110,42 @@ const numero_Amigo = () => {
     }
 
 }
+const valor_Compra = () => {
+    function calcularCompra(valorCompra, cantidad) {
+        const valorUnitario = valorCompra / cantidad;
+        const valorTotal = valorCompra;
+        const iva = valorTotal * 0.19;
+        const totalConIva = valorTotal + iva;
 
+        if (valorTotal > 1000000) {
+            const descuento = valorTotal * 0.1;
+            const totalConDescuento = totalConIva - descuento;
+            return {
+                valorCompra: valorTotal,
+                iva: iva,
+                total: totalConDescuento
+            };
+        } else if (valorTotal > 500000) {
+            return {
+                valorCompra: valorTotal,
+                iva: iva,
+                total: valorTotal
+            };
+        } else {
+            return {
+                valorCompra: valorTotal,
+                iva: iva,
+                total: totalConIva
+            };
+        }
+    }
+
+    const valorCompra = Number(prompt('Ingrese valor de compra $'));
+    const cantidad = Number(prompt('Ingrese la cantidad del producto: '));
+    const resultado = calcularCompra(valorCompra, cantidad);
+    console.log("Valor de compra: " + resultado.valorCompra);
+    console.log("IVA: " + resultado.iva);
+    console.log("Total: " + resultado.total);
+}
 
 menu_Ejercisios();
